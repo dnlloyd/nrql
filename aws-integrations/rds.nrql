@@ -1,0 +1,9 @@
+FROM DatastoreSample
+SELECT 
+  AVERAGE(provider.cpuUtilization.Average) as 'CPU Utilization', 
+  AVERAGE(provider.databaseConnections.Average) as 'Connections' 
+WHERE dataSourceName = 'RDS'
+  AND provider = 'RdsDbInstance'
+FACET entityName
+ORDER BY 'RdsDbInstance'
+

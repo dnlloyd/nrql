@@ -1,0 +1,6 @@
+FROM PrivateNetworkSample
+SELECT XXX
+// WHERE dataSourceName = 'XXX'
+//   AND provider = 'XXX'
+FACET entityName
+ORDER BY 'XXX'

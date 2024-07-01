@@ -1,0 +1,26 @@
+SELECT average(`aws.kafka.MessagesInPerSec.byTopic`) * 60 AS 'Messages Written Per Minute'
+FROM Metric
+FACET `aws.kafka.Topic`
+WHERE 
+  `collector.name` = 'cloudwatch-metric-streams'
+  AND aws.kafka.Topic NOT LIKE '_%'
+  AND aws.kafka.Topic NOT LIKE '.%'
+  AND aws.kafka.Topic != 'heartbeats'
+  AND aws.kafka.Topic NOT LIKE '%mm2%'
+  AND `aws.accountId` = '695018866206'
+LIMIT 1000
+TIMESERIES
+
+
+SELECT average(`aws.kafka.MessagesInPerSec.byTopic`) * 60 AS 'Messages Written Per Minute'
+FROM Metric
+FACET `aws.kafka.Topic` 
+WHERE 
+  `collector.name` = 'cloudwatch-metric-streams'
+  AND aws.kafka.Topic NOT LIKE '_%'
+  AND aws.kafka.Topic NOT LIKE '.%'
+  AND aws.kafka.Topic != 'heartbeats'
+  AND aws.kafka.Topic NOT LIKE '%mm2%'
+  AND `aws.accountId` = '180331123432'
+LIMIT 1000
+TIMESERIES
